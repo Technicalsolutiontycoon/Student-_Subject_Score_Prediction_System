@@ -113,16 +113,16 @@ df['average'] = df['total score'] / 3
 # 4. UNIVARIATE DISTRIBUTION — AVERAGE & TOTAL SCORE
 # ------------------------------------------------------------
  
-# Distribution of the 'average' score overall, and split by gender,
-# to check for normality/skew and any gender-based gap
+# # Distribution of the 'average' score overall, and split by gender,
+# # to check for normality/skew and any gender-based gap
 # fig, axs = plt.subplots(1, 2, figsize=(15, 7))
 # plt.subplot(121)
 # sns.histplot(data=df, x='average', bins=30, kde=True, color='g')
 # plt.subplot(122)
 # sns.histplot(data=df, x='average', kde=True, hue='gender')
 # plt.show()
- 
-# Same idea, but for the raw 'total score' (sum of all 3 subjects)
+
+# # Same idea, but for the raw 'total score' (sum of all 3 subjects)
 # fig, axs = plt.subplots(1, 2, figsize=(15, 7))
 # plt.subplot(121)
 # sns.histplot(data=df, x='total score', bins=30, kde=True, color='g')
@@ -130,13 +130,12 @@ df['average'] = df['total score'] / 3
 # sns.histplot(data=df, x='total score', kde=True, hue='gender')
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 5. AVERAGE SCORE vs LUNCH TYPE (overall, and by gender)
 # ------------------------------------------------------------
  
-# Does having standard vs. free/reduced lunch correlate with
-# performance? Shown overall, then separately for each gender.
+# # Does having standard vs. free/reduced lunch correlate with
+# # performance? Shown overall, then separately for each gender.
 # plt.subplots(1, 3, figsize=(25, 6))
 # plt.subplot(141)
 # sns.histplot(data=df, x='average', kde=True, hue='lunch')
@@ -146,13 +145,12 @@ df['average'] = df['total score'] / 3
 # sns.histplot(data=df[df.gender == 'male'], x='average', kde=True, hue='lunch')
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 6. AVERAGE SCORE vs PARENTAL LEVEL OF EDUCATION
 # ------------------------------------------------------------
  
-# Does parental education level relate to student performance?
-# Shown overall, then split by gender.
+# # Does parental education level relate to student performance?
+# # Shown overall, then split by gender.
 # plt.subplots(1, 3, figsize=(25, 6))
 # plt.subplot(141)
 # ax = sns.histplot(data=df, x='average', kde=True, hue='parental_level_of_education')
@@ -161,14 +159,13 @@ df['average'] = df['total score'] / 3
 # plt.subplot(143)
 # ax = sns.histplot(data=df[df.gender == 'female'], x='average', kde=True, hue='parental_level_of_education')
 # plt.show()
- 
 
 # ------------------------------------------------------------
 # 7. AVERAGE SCORE vs RACE/ETHNICITY
 # ------------------------------------------------------------
  
-# Distribution of average score across race/ethnicity groups,
-# again overall and split by gender
+# # Distribution of average score across race/ethnicity groups,
+# # again overall and split by gender
 # plt.subplots(1, 3, figsize=(25, 6))
 # plt.subplot(141)
 # ax = sns.histplot(data=df, x='average', kde=True, hue='race_ethnicity')
@@ -178,13 +175,12 @@ df['average'] = df['total score'] / 3
 # ax = sns.histplot(data=df[df.gender == 'male'], x='average', kde=True, hue='race_ethnicity')
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 8. SCORE SPREAD PER SUBJECT — VIOLIN PLOTS
 # ------------------------------------------------------------
  
-# Violin plots show the full distribution shape (median, quartiles,
-# density) for each subject score independently
+# # Violin plots show the full distribution shape (median, quartiles,
+# # density) for each subject score independently
 # plt.figure(figsize=(18, 8))
 # plt.subplot(1, 4, 1)
 # plt.title('MATH SCORES')
@@ -197,14 +193,13 @@ df['average'] = df['total score'] / 3
 # sns.violinplot(y='writing_score', data=df, color='blue', linewidth=3)
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 9. CATEGORICAL FEATURE COMPOSITION — PIE CHARTS
 # ------------------------------------------------------------
  
-# One pie chart per categorical feature, showing the proportion
-# of students in each category (gender, race/ethnicity, lunch,
-# test preparation course, parental education)
+# # One pie chart per categorical feature, showing the proportion
+# # of students in each category (gender, race/ethnicity, lunch,
+# # test preparation course, parental education)
 # plt.rcParams['figure.figsize'] = (30, 12)
  
 # plt.subplot(1, 5, 1)
@@ -256,13 +251,12 @@ df['average'] = df['total score'] / 3
 # plt.grid()
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 10. GENDER — COUNT PLOT + PIE CHART
 # ------------------------------------------------------------
  
-# Bar chart of raw gender counts (with count labels on top of bars),
-# followed by a pie chart of the same distribution as a percentage
+# # Bar chart of raw gender counts (with count labels on top of bars),
+# # followed by a pie chart of the same distribution as a percentage
 # f, ax = plt.subplots(1, 2, figsize=(20, 10))
 # sns.countplot(x=df['gender'], data=df, palette='bright', ax=ax[0], saturation=0.95)
 # for container in ax[0].containers:
@@ -271,12 +265,11 @@ df['average'] = df['total score'] / 3
 # plt.pie(x=df['gender'].value_counts(), labels=['Male', 'Female'], explode=[0, 0.1], autopct='%1.1f%%', shadow=True, colors=['#ff4d4d', '#ff8000'])
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 11. AVERAGE PERFORMANCE BY GENDER — GROUPED BAR CHART
 # ------------------------------------------------------------
  
-# Compute the mean of every numeric column, grouped by gender
+# # Compute the mean of every numeric column, grouped by gender
 # gender_group = df.groupby('gender').mean(numeric_only=True)
 # plt.figure(figsize=(10, 8))
  
@@ -307,12 +300,11 @@ df['average'] = df['total score'] / 3
 # plt.legend()
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 12. RACE/ETHNICITY — COUNT PLOT + PIE CHART
 # ------------------------------------------------------------
  
-# Same count + pie chart pattern as gender, but for race/ethnicity groups
+# # Same count + pie chart pattern as gender, but for race/ethnicity groups
 # f, ax = plt.subplots(1, 2, figsize=(20, 10))
 # sns.countplot(x=df['race_ethnicity'], data=df, palette='bright', ax=ax[0], saturation=0.95)
 # for container in ax[0].containers:
@@ -321,13 +313,12 @@ df['average'] = df['total score'] / 3
 # plt.pie(x=df['race_ethnicity'].value_counts(), labels=df['race_ethnicity'].value_counts().index, explode=[0.1, 0, 0, 0, 0], autopct='%1.1f%%', shadow=True)
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 13. MEAN SCORE PER SUBJECT, GROUPED BY RACE/ETHNICITY
 # ------------------------------------------------------------
  
-# For each race/ethnicity group, compare the mean math, reading,
-# and writing scores side by side in three separate bar charts
+# # For each race/ethnicity group, compare the mean math, reading,
+# # and writing scores side by side in three separate bar charts
 # Group_data2 = df.groupby('race_ethnicity')
 # f, ax = plt.subplots(1, 3, figsize=(20, 8))
 # sns.barplot(x=Group_data2['math_score'].mean().index, y=Group_data2['math_score'].mean().values, palette='mako', ax=ax[0])
@@ -347,29 +338,29 @@ df['average'] = df['total score'] / 3
  
 # for container in ax[2].containers:
 #     ax[2].bar_label(container, color='black', size=15)
- 
- 
+# plt.show()
+
+
 # # ------------------------------------------------------------
 # # 14. PARENTAL LEVEL OF EDUCATION — DISTRIBUTION & MEAN SCORES
 # # ------------------------------------------------------------
  
-# # How many students fall into each parental education category
+# How many students fall into each parental education category
 # plt.rcParams['figure.figsize'] = (15, 9)
 # plt.style.use('fivethirtyeight')
 # sns.countplot(df['parental_level_of_education'], palette='Blues')
-# plt.title('Comparison of Parental Education', fontweight=30, fontsize=20)
+# plt.title('Comparison of Parental Education', fontweight=400, fontsize=20)
 # plt.xlabel('Degree')
 # plt.ylabel('count')
 # plt.show()
- 
-# # Mean of every numeric score column, grouped by parental education,
-# # shown as a horizontal bar chart for easy comparison
-# df.groupby('parental level of education').agg('mean').plot(kind='barh', figsize=(10, 10))
-# plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+
+# Mean of every numeric score column, grouped by parental education,
+# shown as a horizontal bar chart for easy comparison
+# df.groupby('parental_level_of_education')[['math_score', 'reading_score', 'writing_score']].mean().plot(kind='barh',figsize=(10, 10))
+# plt.legend(bbox_to_anchor=(1.05, 1),loc='upper left',borderaxespad=0)
 # plt.show()
-plt.savefig("reports/PARENTAL LEVEL OF EDUCATION — DISTRIBUTION & MEAN SCORES.png")
  
- 
+
 # ------------------------------------------------------------
 # 15. LUNCH TYPE — DISTRIBUTION
 # ------------------------------------------------------------
@@ -382,15 +373,14 @@ plt.savefig("reports/PARENTAL LEVEL OF EDUCATION — DISTRIBUTION & MEAN SCORES.
 # plt.ylabel('count')
 # plt.show()
  
- 
 # ------------------------------------------------------------
 # 16. PARENTAL EDUCATION vs TEST PREP / LUNCH — COUNT PLOTS
 # ------------------------------------------------------------
  
-# # Left: for each parental education level, how many students did/
-# # didn't complete the test preparation course
-# # Right: for each parental education level, how many have standard
-# # vs. free/reduced lunch
+# Left: for each parental education level, how many students did/
+# didn't complete the test preparation course
+# Right: for each parental education level, how many have standard
+# vs. free/reduced lunch
 # f, ax = plt.subplots(1, 2, figsize=(20, 8))
 # sns.countplot(x=df['parental_level_of_education'], data=df, palette='bright', hue='test_preparation_course', saturation=0.95, ax=ax[0])
 # ax[0].set_title('Students vs test preparation course ', color='black', size=25)
@@ -400,7 +390,7 @@ plt.savefig("reports/PARENTAL LEVEL OF EDUCATION — DISTRIBUTION & MEAN SCORES.
 # sns.countplot(x=df['parental_level_of_education'], data=df, palette='bright', hue='lunch', saturation=0.95, ax=ax[1])
 # for container in ax[1].containers:
 #     ax[1].bar_label(container, color='black', size=20)
- 
+# plt.show()
  
 # # ------------------------------------------------------------
 # # 17. SUBJECT SCORES vs LUNCH, SPLIT BY TEST PREPARATION COURSE
@@ -416,8 +406,7 @@ plt.savefig("reports/PARENTAL LEVEL OF EDUCATION — DISTRIBUTION & MEAN SCORES.
 # sns.barplot(x=df['lunch'], y=df['reading_score'], hue=df['test_preparation_course'])
 # plt.subplot(2, 2, 3)
 # sns.barplot(x=df['lunch'], y=df['writing_score'], hue=df['test_preparation_course'])
- 
- 
+# plt.show()
 # # ------------------------------------------------------------
 # # 18. OUTLIER DETECTION — BOX PLOTS
 # # ------------------------------------------------------------
