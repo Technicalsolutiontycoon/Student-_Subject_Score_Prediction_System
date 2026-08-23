@@ -1,0 +1,52 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Streamlit
+.streamlit/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Model files
+*.pkl
+*.joblib
+
+# Keep the models folder but ignore generated model files
+models/*.joblib
+
+# Python distribution
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Testing / coverage
+.coverage
+.pytest_cache/
+
+# Local data files (optional)
+# Uncomment if you don't want to upload datasets
+# data/*.csv
