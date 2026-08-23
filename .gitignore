@@ -22,10 +22,10 @@ __pycache__/
 
 # Model files
 *.pkl
-*.joblib
 
-# Keep the models folder but ignore generated model files
-models/*.joblib
+# Keep trained model required for deployment
+!models/
+!models/math_score_model.joblib
 
 # Python distribution
 build/
